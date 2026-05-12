@@ -4,6 +4,13 @@ import datetime
 
 app = Flask(__name__)
 
+BASE_DIR = Path(__file__).resolve().parent
+
+
+def load_index_html() -> str:
+    """Load static login page markup from index.html."""
+    return (BASE_DIR / "index.html").read_text(encoding="utf-8")
+
 @app.route('/', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
