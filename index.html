@@ -22,64 +22,63 @@
 
         .container {
             display: flex;
-            max-width: 1300px;
+            max-width: 1200px;
             width: 100%;
             margin: 20px;
             background: white;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border: 1px solid #dbdbdb;
         }
 
         .left-side {
             flex: 1;
-            padding: 60px 80px 40px 60px;
+            padding: 50px 60px 40px 80px;
             text-align: left;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .instagram-logo {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 20px;
+            width: 175px;
+            height: 50px;
+            margin-bottom: 30px;
         }
 
         .left-side h1 {
-            font-size: 28px;
+            font-size: 26px;
             line-height: 1.35;
-            font-weight: 500;
-            margin-bottom: 40px;
+            font-weight: 400;
             color: #262626;
+            margin-bottom: 40px;
         }
 
         .pink { color: #e1306c; }
 
         .collage-container {
             position: relative;
-            max-width: 460px;
+            max-width: 520px;
         }
 
         .collage {
             width: 100%;
-            border-radius: 18px;
-            display: block;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
         }
 
         .right-side {
             width: 380px;
-            padding: 40px 35px;
+            padding: 32px 40px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            background: #fff;
             border-left: 1px solid #dbdbdb;
         }
 
         .title {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
-            margin: 10px 0 28px;
+            margin: 8px 0 24px;
             color: #262626;
-            text-align: center;
         }
 
         input {
@@ -88,14 +87,14 @@
             margin-bottom: 12px;
             background: #fafafa;
             border: 1px solid #dbdbdb;
-            border-radius: 8px;
+            border-radius: 6px;
             font-size: 15px;
             box-sizing: border-box;
         }
 
         button {
             width: 100%;
-            padding: 10px;
+            padding: 9px;
             background: #0095f6;
             color: white;
             border: none;
@@ -110,7 +109,7 @@
             color: #0095f6;
             text-decoration: none;
             font-size: 14px;
-            margin: 12px 0 20px;
+            margin: 10px 0 18px;
         }
 
         .fb-btn {
@@ -126,23 +125,48 @@
             justify-content: center;
             gap: 8px;
             text-decoration: none;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
             font-size: 15px;
         }
 
         .create-account {
             color: #0095f6;
             text-decoration: none;
-            font-weight: 600;
             font-size: 15px;
-            margin-top: 15px;
+            font-weight: 600;
+            margin-top: 10px;
         }
 
-        /* Мобильная оптимизация */
+        .meta-logo {
+            margin-top: 30px;
+            width: 60px;
+        }
+
+        /* Footer */
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            font-size: 12px;
+            color: #8e8e8e;
+            background: #fafafa;
+            border-top: 1px solid #dbdbdb;
+        }
+
+        footer a {
+            color: #8e8e8e;
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        /* Мобильная версия */
         @media (max-width: 900px) {
-            .container { flex-direction: column; margin: 0; box-shadow: none; }
-            .left-side { padding: 40px 20px 30px; text-align: center; }
+            .container { flex-direction: column; border: none; margin: 0; }
+            .left-side { padding: 40px 20px; text-align: center; }
             .right-side { width: 100%; border-left: none; border-top: 1px solid #dbdbdb; padding: 30px 20px; }
+            .instagram-logo { width: 140px; height: 40px; }
         }
     </style>
 </head>
@@ -150,8 +174,8 @@
     <div class="container">
         <!-- Левая часть -->
         <div class="left-side">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" 
-                 class="instagram-logo" alt="Instagram Logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968776.png" 
+                 class="instagram-logo" alt="Instagram">
             
             <h1>Посмотрите, какими моментами<br>из жизни поделились ваши<br><span class="pink">близкие друзья.</span></h1>
             
@@ -178,7 +202,25 @@
             </a>
             
             <a href="#" class="create-account">Создать новый аккаунт</a>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIHh0pVwTAebw6C7-IEi_XJAON9ZFIv0S9og&s" 
+                 class="meta-logo" alt="Meta">
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer>
+        <div>
+            Meta • Информация • Блог • Вакансии • Помощь • API • Конфиденциальность • 
+            Настройки файлов cookie • Условия • Места • Популярное • Instagram Lite • 
+            Meta AI • Threads
+        </div>
+        <div style="margin-top: 8px;">
+            Загрузка контактов и лица, не являющиеся пользователями • Meta Verified
+        </div>
+        <div style="margin-top: 12px;">
+            Русский © 2026 Instagram from Meta
+        </div>
+    </footer>
 </body>
 </html>
