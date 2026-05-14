@@ -10,6 +10,23 @@ href="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.p
 
 <style>
 
+    /* ЗАБОРОНА СКРОЛУ */
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    position:fixed;
+    touch-action:none;
+    overscroll-behavior:none;
+}
+
+/* IOS SAFARI FIX */
+body{
+    -webkit-overflow-scrolling:none;
+}
+/*------------------------------------------------------------------*/
 *{
     margin:0;
     padding:0;
